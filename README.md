@@ -28,7 +28,11 @@ go run 15_pointers/main.go
 - **Maps & Ranges**
 - **Functions & Closures**
 - **Pointers**
-- **More to come!**
+- **Structs & Interfaces**
+- **Concurrency** (Goroutines, WaitGroups, Channels, Mutex)
+- **File Handling**
+- **Streaming**
+- **Packages & Modules**
 
 ## 🔥 Why Go?
 

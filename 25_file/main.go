@@ -48,19 +48,19 @@ func main() {
 	// fmt.Println(string(data))
 
 	// (((( 2 ))))
-	// dir, err := os.Open("../")
+	dir, err := os.Open("../")
 
-	// if err != nil {
-	// 	panic(err)
-	// }
+	if err != nil {
+		panic(err)
+	}
 
-	// defer dir.Close()
+	defer dir.Close()
 
-	// fileInfo, err := dir.ReadDir(-1)
+	fileInfo, err := dir.ReadDir(-1)
 
-	// for _, fi := range fileInfo {
-	// 	fmt.Println(fi.Name(), fi.IsDir())
-	// }
+	for _, fi := range fileInfo {
+		fmt.Println(fi.Name(), fi.IsDir())
+	}
 
 	// (((( 3 ))))
 	// f, err := os.Create("2.txt")
@@ -77,9 +77,9 @@ func main() {
 
 	// (((( 4 ))))
 	// DELETE A FILE
-	err := os.Remove("2.txt")
-	if err != nil {
-		panic(err)
-	}
-	fmt.Println("File Deleted")
+	// err := os.Remove("2.txt")
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// fmt.Println("File Deleted")
 }
