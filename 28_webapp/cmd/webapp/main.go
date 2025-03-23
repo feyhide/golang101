@@ -11,6 +11,7 @@ import (
 	"time"
 
 	"github.com/feyhide/golang101/28_webapp/internal/config"
+	"github.com/feyhide/golang101/28_webapp/internal/http/handlers/student"
 )
 
 func main() {
@@ -21,9 +22,7 @@ func main() {
 	// setup router
 	router := http.NewServeMux()
 
-	router.HandleFunc("GET /", func(res http.ResponseWriter, req *http.Request) {
-		res.Write([]byte("Welcome to feyhide go webserver"))
-	})
+	router.HandleFunc("POST /api/v1/students", student.New())
 
 	// setup server
 	server := http.Server{
