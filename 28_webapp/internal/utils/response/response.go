@@ -4,39 +4,32 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"strings"
 
 	"github.com/go-playground/validator/v10"
 )
 
 type Response struct {
-	Status string `json:"status"`
-	Error  string `json:"error"`
+	Success bool   `json:"success"`
+	Message string `json:"message"`
+	Data    any    `json:"data,omitempty"`
 }
 
-const (
-	StatusOK    = "OK"
-	StatusError = "Error"
-)
-
-func WriteJson(res http.ResponseWriter, status int, data any) error {
+func WriteJson(res http.ResponseWriter, status int, success bool, message string, data any) error {
 	res.Header().Set("Content-Type", "application/json")
 	res.WriteHeader(status)
-	err := json.NewEncoder(res).Encode(data)
-	if err != nil {
-		GeneralError(err)
-	}
-	return nil
+
+	return json.NewEncoder(res).Encode(Response{
+		Success: success,
+		Message: message,
+		Data:    data,
+	})
 }
 
-func GeneralError(err error) Response {
-	return Response{
-		Status: StatusError,
-		Error:  err.Error(),
-	}
+func GeneralError(res http.ResponseWriter, status int, err error) error {
+	return WriteJson(res, status, false, err.Error(), nil)
 }
 
-func ValidationError(errs validator.ValidationErrors) Response {
+func ValidationError(res http.ResponseWriter, errs validator.ValidationErrors) error {
 	var errMsgs []string
 
 	for _, err := range errs {
@@ -50,8 +43,5 @@ func ValidationError(errs validator.ValidationErrors) Response {
 		}
 	}
 
-	return Response{
-		Status: StatusError,
-		Error:  strings.Join(errMsgs, ", "),
-	}
+	return WriteJson(res, http.StatusBadRequest, false, "Validation failed", errMsgs)
 }
