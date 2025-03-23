@@ -8,7 +8,7 @@ Each folder focuses on a specific Go concept.
 
 ## ▶️ How to Run Code
 
-To run any specific lesson, use the following command:
+To run any specific lesson except webapp, use the following command:
 
 ```sh
 go run <foldername>/main.go
@@ -18,6 +18,12 @@ For example, to run the **pointers** lesson:
 
 ```sh
 go run 15_pointers/main.go
+```
+
+For WebApp use the following command (providing path to config):
+
+```sh
+go run cmd/webapp/main.go -config config/local.yaml
 ```
 
 ## 📖 Topics Covered
