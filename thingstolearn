@@ -1,1 +1,50 @@
-CONTEXT IN DETAIL
+- Context package (for request cancellations & timeouts)
+
+- Rate Limiting & Queues (build a job queue system)
+
+- Web Development with Gin
+  . Request handling, middleware, routing
+  . JSON validation & binding
+  . Authentication (JWT, OAuth)
+  . File uploads & streaming
+  . WebSockets for real-time apps
+
+- Core Concepts of Concurrency & Parallelism
+  . Goroutines
+  . Channels (Buffered & Unbuffered)
+  . Select Statement
+  . Context Package (Request Cancellation & Timeouts)
+
+- Synchronization & Thread Safety
+  . Mutex (sync.Mutex & sync.RWMutex)
+  . WaitGroups (sync.WaitGroup)
+  . Atomic Operations (sync/atomic)
+  . Condition Variables (sync.Cond)
+
+- Advanced Concurrency Patterns
+  . Worker Pools
+  . Fan-in / Fan-out Pattern
+  . Rate Limiting (time.Ticker & Leaky Bucket Algorithm)
+
+- Database & Storage
+  . GORM (ORM for PostgreSQL/MySQL)
+  . Query optimization & indexing
+  . Transactions & connection pooling
+  . Redis (for caching & session storage)
+
+- Security & Best Practices
+  . Secure API design (rate limiting, CORS, input validation)
+  . Hashing & encryption (bcrypt, crypto package)
+  . Dependency management & avoiding vulnerabilities
+  . Secure coding guidelines (Go’s memory safety features)
+
+- Microservices & Distributed Systems
+  . gRPC & Protocol Buffers
+  . Kafka or NATS for event-driven architecture
+  . Service discovery & load balancing
+  . Circuit breakers (Hystrix-like patterns)
+
+- Performance Optimization & Profiling
+  . Benchmarking with testing.B
+  . Profiling with pprof
+  . Memory leaks & CPU usage monitoring
